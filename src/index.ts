@@ -10,17 +10,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { resolveAuth } from "./adapters/shared.js";
 import { logger } from "./adapters/logger.js";
-import { registerBalanceTools } from "./tools/balance.js";
-import { registerGatewayTools } from "./tools/gateway.js";
-import { registerTxHistoryTools } from "./tools/txhistory.js";
-import { registerDefiTools } from "./tools/defi.js";
-import { registerPaymentsTools } from "./tools/payments.js";
-import { registerTradeTools } from "./tools/trade.js";
-import { registerIntentTools } from "./tools/intent.js";
-import { registerMarketTools } from "./tools/market.js";
-import { registerWsTools } from "./tools/ws.js";
-import { registerSkillTools } from "./tools/skills.js";
-import { registerHelpTools } from "./tools/help.js";
+import { registerAllTools } from "./tools/all.js";
 
 const { version } = JSON.parse(
   readFileSync(new URL("../package.json", import.meta.url), "utf-8"),
@@ -62,17 +52,7 @@ async function main() {
 
   const server = new McpServer({ name: "hchain-skills", version });
 
-  registerBalanceTools(server, auth);
-  registerGatewayTools(server, auth);
-  registerTxHistoryTools(server, auth);
-  registerDefiTools(server, auth);
-  registerPaymentsTools(server, auth);
-  registerTradeTools(server, auth);
-  registerIntentTools(server, auth);
-  registerMarketTools(server, auth);
-  registerWsTools(server, auth);
-  registerSkillTools(server, auth);
-  registerHelpTools(server, auth);
+  registerAllTools(server, auth);
 
   const transport = new StdioServerTransport();
   await server.connect(transport);

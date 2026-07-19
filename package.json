@@ -1,6 +1,6 @@
 {
   "name": "hchain-skills",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "hchain-skills \u2014 AI-native multi-chain trading MCP Server (116 tools / 18 composite skills, beyond official OnchainOS) \u2014 production-hardened",
   "type": "module",
   "main": "dist/index.js",
