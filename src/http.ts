@@ -101,7 +101,6 @@ async function main() {
   // ★ Stateless mode: no session management, no Server already initialized
   const transport = new StreamableHTTPServerTransport({
     sessionIdGenerator: undefined,  // stateless
-    enableJsonResponse: true,
   });
 
   const server = new McpServer({ name: "hchain-skills", version });
